@@ -1,0 +1,35 @@
+<div class="inputConvertingValsueconver_block">
+  <div class="block_choose">
+    <div>
+      <div class="block_choose_way">From</div>
+      <div>
+        <input
+          type="number"
+          (input)="handlerAddValue($event)"
+          [value]="defaultAmount"
+        />
+        <select (change)="handleExchangeFromValue(mySelect.value)" #mySelect>
+          <option *ngFor="let c of currencyValue" [value]="c.name">
+            {{ c.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="block_choose">
+    <div class="block_choose_way">
+      <div>To</div>
+      <div>
+        <input
+          [value]="ConvertingValsue"
+          (input)="handlerAddValueToFrom($event)"
+        />
+        <select (change)="handleExchangeToValue(myConvert.value)" #myConvert>
+          <option *ngFor="let c of currencyToValue" [value]="c.name">
+            {{ c.name }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+.conver_block {
+  width: 50%;
+  margin: 70px auto;
+}
+.block_choose {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0;
+}
+
+.block_choose_way {
+  font-size: 18px;
+  padding: 10px 0;
+}
+
+input,
+select {
+  height: 55px;
+  width: 200px;
+  background: transparent;
+  border-radius: 6px;
+  border: 1px solid #dadce0;
+  color: #70757a;
+  font-size: 20px;
+  margin-right: 10px;
+}
+select {
+  outline: 0;
+  height: 60px;
+  width: 200px;
+}
