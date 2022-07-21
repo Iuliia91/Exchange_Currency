@@ -38,14 +38,9 @@ export class ConvertComponentComponent implements OnInit {
 
     this.apiServer
       .get(this.defaultValue, this.converToValue, value, this.options)
-      .subscribe(
-        (data) => {
-          this.handleConvertAmoutn(data);
-        },
-        (error) => {
-          alert('Somting went wront.Please try again!');
-        }
-      );
+      .subscribe((data) => {
+        this.handleConvertAmoutn(data);
+      });
   }
 
   handlerAddValueToFrom(event: any) {
@@ -54,14 +49,9 @@ export class ConvertComponentComponent implements OnInit {
 
     this.apiServer
       .get(this.converToValue, this.defaultValue, value, this.options)
-      .subscribe(
-        (data) => {
-          this.handleTry(data);
-        },
-        (error) => {
-          alert('Somting went wront.Please try again!');
-        }
-      );
+      .subscribe((data) => {
+        this.handleTry(data);
+      });
   }
 
   handleTry(data: any) {
@@ -71,14 +61,9 @@ export class ConvertComponentComponent implements OnInit {
     this.converToValue = value;
     this.apiServer
       .get(value, this.defaultValue, this.ConvertingValsue, this.options)
-      .subscribe(
-        (data) => {
-          this.handleConvert(data);
-        },
-        (error) => {
-          alert('Somting went wront.Please try again!');
-        }
-      );
+      .subscribe((data) => {
+        this.handleConvert(data);
+      });
   }
 
   handleConvert(data: any) {
@@ -88,18 +73,12 @@ export class ConvertComponentComponent implements OnInit {
     this.defaultValue = value;
     this.apiServer
       .get(value, this.converToValue, this.defaultAmount, this.options)
-      .subscribe(
-        (data) => {
-          this.handleConvertAmoutn(data);
-        },
-        (error) => {
-          alert('Somting went wront.Please try again!');
-        }
-      );
+      .subscribe((data) => {
+        this.handleConvertAmoutn(data);
+      });
   }
 
   handleConvertAmoutn(data: any) {
-    console.log(data);
     this.ConvertingValsue = data.rates[this.converToValue].rate_for_amount;
   }
   ngOnInit(): void {
@@ -110,13 +89,8 @@ export class ConvertComponentComponent implements OnInit {
         this.defaultAmount,
         this.options
       )
-      .subscribe(
-        (data) => {
-          this.handleConvertAmoutn(data);
-        },
-        (error) => {
-          alert('Somting went wront.Please try again!');
-        }
-      );
+      .subscribe((data) => {
+        this.handleConvertAmoutn(data);
+      });
   }
 }
