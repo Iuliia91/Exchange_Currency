@@ -24,20 +24,13 @@ export class ConvertComponentComponent implements OnInit {
     { id: 2, name: 'UAH' },
     { id: 4, name: 'EUR' },
   ];
-  options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': 'd891d3ad3cmshd44c450c381af3fp14e2fcjsn300b575d9d12',
-      'X-RapidAPI-Host': 'currency-converter5.p.rapidapi.com',
-    },
-  };
 
   handlerAddValue(event: any) {
     const value = event.target.value;
     this.defaultAmount = value;
 
     this.apiServer
-      .get(this.defaultValue, this.converToValue, value, this.options)
+      .get(this.defaultValue, this.converToValue, value)
       .subscribe((data) => {
         this.handleConvertAmoutn(data);
       });
@@ -48,7 +41,7 @@ export class ConvertComponentComponent implements OnInit {
     this.ConvertingValsue = value;
 
     this.apiServer
-      .get(this.converToValue, this.defaultValue, value, this.options)
+      .get(this.converToValue, this.defaultValue, value)
       .subscribe((data) => {
         this.handleTry(data);
       });
@@ -60,7 +53,7 @@ export class ConvertComponentComponent implements OnInit {
   handleExchangeToValue(value: any) {
     this.converToValue = value;
     this.apiServer
-      .get(value, this.defaultValue, this.ConvertingValsue, this.options)
+      .get(value, this.defaultValue, this.ConvertingValsue)
       .subscribe((data) => {
         this.handleConvert(data);
       });
@@ -72,7 +65,7 @@ export class ConvertComponentComponent implements OnInit {
   handleExchangeFromValue(value: any) {
     this.defaultValue = value;
     this.apiServer
-      .get(value, this.converToValue, this.defaultAmount, this.options)
+      .get(value, this.converToValue, this.defaultAmount)
       .subscribe((data) => {
         this.handleConvertAmoutn(data);
       });
@@ -83,12 +76,7 @@ export class ConvertComponentComponent implements OnInit {
   }
   ngOnInit(): void {
     this.apiServer
-      .get(
-        this.defaultValue,
-        this.converToValue,
-        this.defaultAmount,
-        this.options
-      )
+      .get(this.defaultValue, this.converToValue, this.defaultAmount)
       .subscribe((data) => {
         this.handleConvertAmoutn(data);
       });

@@ -16,13 +16,6 @@ export class HeaderComponent implements OnInit {
   euroAmount = 0;
   constructor(private apiServer: HttpClient) {}
 
-  options = {
-    method: 'GET',
-    headers: {
-      'X-RapidAPI-Key': 'd891d3ad3cmshd44c450c381af3fp14e2fcjsn300b575d9d12',
-      'X-RapidAPI-Host': 'currency-converter5.p.rapidapi.com',
-    },
-  };
   public contacts = {
     name: 'euro',
     Euroimage: 'assets/img/euro-266.svg',
@@ -37,8 +30,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.apiServer
       .get(
-        'https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from=UAH&to=USD%2C%20EUR&amount=1',
-        this.options
+        'https://currency-converter5.p.rapidapi.com/currency/convert?format=json&from=UAH&to=USD%2C%20EUR&amount=1'
       )
       .subscribe((data) => this.handleConvertAmount(data));
   }
